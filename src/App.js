@@ -11,25 +11,30 @@ class App extends Component {
     super();
     this.state = {
       books: [],
-      dataLoaded: false
+      dataLoaded: false,
+      query: ''
     }
   }
 
-  async fetchBookData() {
-    const query = 'quilting';
+  async fetchBookData(query) {
     const resp = await axios.get(`${BASE_URL}${query}`);
     this.setState({ books: resp.data,  dataLoaded: true });
     console.log("fetch books ",this.state.books)
     // this.filterResults();
     return resp.data;
   }
-  filterResults() {
-    this.state.books.items.map(book => {
-      console.log(book.volumeInfo.publisher);
-    })
-  }
+  // filterResults() {
+  //   this.state.books.items.map(book => {
+  //     console.log(book.volumeInfo.publisher);
+  //   })
+  // }
   async componentDidMount() {
-    await this.fetchBookData();
+    // await this.fetchBookData();
+    console.log('display message to do a search')
+  }
+  async onSubmit(value) {
+    this.setState({ query: value });
+    await this.fetchBookData(this.state.query);
   }
   render() {
     return (
@@ -38,7 +43,7 @@ class App extends Component {
 
         </header>
         <main>
-          <SearchBar />
+          <SearchBar onSubmit={(res) => this.onSubmit(res)}/>
           <BookList books={this.state.books} dataLoaded={this.state.dataLoaded} />
         </main>
       </div>

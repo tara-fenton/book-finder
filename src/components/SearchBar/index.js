@@ -13,6 +13,7 @@ export default class SearchBar extends Component {
     
     onClick(evt) {
         evt.preventDefault();
+        this.props.onSubmit(this.state.input);
     }
 
     onChange(evt) {
