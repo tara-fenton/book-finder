@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import SearchBar from './components/SearchBar'
+import SearchBar from './components/SearchBar';
+import BookList from './components/BookList';
 import './App.css';
+
 
 class App extends Component {
   render() {
@@ -11,6 +13,7 @@ class App extends Component {
         </header>
         <main>
           <SearchBar />
+          <BookList />
         </main>
       </div>
     );
