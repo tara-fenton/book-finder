@@ -1,0 +1,13 @@
+.book-item {
+ width: 240px;
+ border: 1px solid olive;
+ margin: 0 auto;
+ padding: 10px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+.book-info {
+    display: flex;
+    align-items: baseline;
+}
