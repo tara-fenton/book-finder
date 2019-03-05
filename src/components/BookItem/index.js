@@ -8,6 +8,7 @@ const BookItem = ({ book }) => {
         <h6>Authors: {book.volumeInfo.authors.join(", ")}</h6>
         <h6>Publisher: {book.volumeInfo.publisher}</h6>
         <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title} />
+        <a href={book.volumeInfo.infoLink}>More Info</a>
       </div>
   );
 };
