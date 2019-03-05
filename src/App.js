@@ -43,6 +43,7 @@ class App extends Component {
 
         </header>
         <main>
+          <h1>Book Finder</h1>
           <SearchBar onSubmit={(res) => this.onSubmit(res)}/>
           <BookList books={this.state.books} dataLoaded={this.state.dataLoaded} />
         </main>

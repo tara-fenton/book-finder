@@ -12,7 +12,7 @@ export default class BookList extends Component {
             return <BookItem book={book} key={book.id} />
           })
         ) : (
-            <h2>Loading</h2>
+            <h2>Try searching for a book!</h2>
           )}
 
       </div>
