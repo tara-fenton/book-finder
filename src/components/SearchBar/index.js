@@ -1,34 +1,12 @@
 import React, { Component } from 'react'
 
-export default class SearchBar extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            input: ''
-        }
-        this.onClick = this.onClick.bind(this);
-        this.onChange = this.onChange.bind(this);
-    }
-    
-    onClick(evt) {
-        evt.preventDefault();
-        this.props.onSubmit(this.state.input);
-    }
-
-    onChange(evt) {
-        this.setState({
-            input: evt.target.value
-        });
-    }
-    render() {
-        return (
-            <div>
-                <form>
-                    <input type="text" name="search" onChange={this.onChange} />
-                    <button id="searchBtn" onClick={this.onClick} >Submit</button>
-                </form>
-            </div>
-        )
-    }
+export default function SearchBar(props) {
+    return (
+        <div>
+            <form onSubmit={props.onSubmit}>
+                <input type="text" name={props.name} onChange={props.onChange} />
+                <input type="submit" value="Search" />
+            </form>
+        </div>
+    )
 }
